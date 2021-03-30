@@ -47,6 +47,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <artifactId>hibernate-validator</artifactId>
+            <groupId>org.hibernate</groupId>
+            <version>6.0.13.Final</version>
+        </dependency>
+        <dependency>
+            <artifactId>javax.el</artifactId>
+            <groupId>org.glassfish</groupId>
+            <version>3.0.0</version>
+        </dependency>
 
         <!--TEST DEPENDENCIES-->
         <dependency>
