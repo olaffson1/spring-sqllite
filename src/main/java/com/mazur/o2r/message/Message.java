@@ -24,4 +24,12 @@ public class Message {
   private UUID id;
 
   private String content;
+
+  public String getId() {
+    return id != null ? id.toString() : null;
+  }
+
+  public void setId(String value) {
+    id = UUID.fromString(value);
+  }
 }

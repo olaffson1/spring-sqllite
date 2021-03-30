@@ -13,11 +13,39 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>o2r</name>
     <description>Example Spring Boot with SqlLite</description>
+
     <properties>
         <java.version>11</java.version>
         <sqlite-jdbc.version>3.16.1</sqlite-jdbc.version>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>2.4.4</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -48,14 +76,14 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <artifactId>hibernate-validator</artifactId>
-            <groupId>org.hibernate</groupId>
-            <version>6.0.13.Final</version>
-        </dependency>
-        <dependency>
             <artifactId>javax.el</artifactId>
             <groupId>org.glassfish</groupId>
             <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <artifactId>hibernate-validator</artifactId>
+            <groupId>org.hibernate</groupId>
+            <version>6.0.13.Final</version>
         </dependency>
 
         <!--TEST DEPENDENCIES-->
@@ -64,23 +92,34 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+        <dependency>
+            <artifactId>junit-jupiter-api</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <scope>test</scope>
+            <version>5.3.2</version>
+        </dependency>
+        <dependency>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <scope>test</scope>
+            <version>5.3.2</version>
+        </dependency>
+        <dependency>
+            <artifactId>mockserver-netty</artifactId>
+            <groupId>org.mock-server</groupId>
+            <version>3.10.8</version>
+        </dependency>
+        <dependency>
+            <artifactId>mockserver-client-java</artifactId>
+            <groupId>org.mock-server</groupId>
+            <version>3.10.8</version>
+        </dependency>
+        <dependency>
+            <artifactId>h2</artifactId>
+            <groupId>com.h2database</groupId>
+            <scope>test</scope>
+        </dependency>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    </dependencies>
 
 </project>
